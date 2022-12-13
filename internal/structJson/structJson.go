@@ -1,20 +1,22 @@
+/*Package that contains every Json Structure and Transformations of Json Structures  and Json Related Functions */
 package structJson
 
+/*Json that is the awnser for the API call*/
 type JsonResponse struct {
 	Verify  bool     `json:"verify"`
 	NoMatch []string `json:"noMatch"`
 }
 
-/* Structure that is created from json received from Verify POST API call  for PW Check */
+/* Structure that is created from JSON received from Verify POST API call  for Password Checker Service */
 type PSReceiveStructure struct {
-	PW    string
-	Rules map[string]int
+	PW    string         `json:"password"`
+	Rules map[string]int `json:"rules"`
 }
 
-/* Raw structure received by json*/
+/* The raw structure received by JSON*/
 type PSReceiveStructureRaw struct {
-	PW    string
-	Rules []Rule
+	PW    string `json:"password"`
+	Rules []Rule `json:"rules"`
 }
 type Rule struct {
 	Rule  string

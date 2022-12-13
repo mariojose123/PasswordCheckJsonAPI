@@ -1,8 +1,8 @@
+/*Env struct and functions that set Received Json Variables Names*/
 package envVar
 
 import (
 	"os"
-
 )
 
 /*Structure with all env variables*/
@@ -15,6 +15,7 @@ type EnvVar struct {
 	RepeatedString    string
 }
 
+/* Get Enviroment Variables of OS*/
 func GetEnvVariables() EnvVar {
 	return EnvVar{os.Getenv("UpperCaseString"),
 		os.Getenv("LOWERCASESTRING"),
@@ -24,7 +25,8 @@ func GetEnvVariables() EnvVar {
 		os.Getenv("REPEATEDSTRING")}
 }
 
-func DebugEnvVariables() EnvVar {
+/* Get Default Json Names*/
+func NoEnvVariables() EnvVar {
 	return EnvVar{"minUppercase",
 		"minLowercase",
 		"minDigit",

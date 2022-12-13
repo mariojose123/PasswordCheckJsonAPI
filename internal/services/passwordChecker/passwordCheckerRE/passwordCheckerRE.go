@@ -1,3 +1,4 @@
+/* package for password checker that check if password Regular Expression is Matched x times in the password string*/
 package passwordCheckerRE
 
 import (
@@ -5,12 +6,13 @@ import (
 	"regexp"
 )
 
-/*Struct that checks repetion of regular Expression in the PW */
+/*Struct that checks repetition of regular Expression in the PW */
 type PWCheckerMinRE struct {
 	regexCompiled *regexp.Regexp
 	nameConst     string
 }
 
+/*Create a new Password Checker that checks if a regular Expression happens x times */
 func NewPWCheckRE(name string, regextext string) (PWCheckerMinRE, error) {
 	regexCompiled, err := regexp.Compile(regextext)
 	if err != nil {
@@ -19,7 +21,27 @@ func NewPWCheckRE(name string, regextext string) (PWCheckerMinRE, error) {
 	return PWCheckerMinRE{nameConst: name, regexCompiled: regexCompiled}, nil
 }
 
-/*Add Match if  PW has matched Minimun of n regexp  */
+/* Create PWCheckerMinRE FOR Upper Case characters*/
+func NewPWCheckREUpperCase(name string) (PWCheckerMinRE, error) {
+	return NewPWCheckRE(name, `[A-Z]`)
+}
+
+/* Create PWCheckerMinRE FOR Digits*/
+func NewPWCheckREDigits(name string) (PWCheckerMinRE, error) {
+	return NewPWCheckRE(name, `[0-9]`)
+}
+
+/* Create PWCheckerMinRE FOR Upper Case characters*/
+func NewPWCheckRESpecialchar(name string) (PWCheckerMinRE, error) {
+	return NewPWCheckRE(name, "["+regexp.QuoteMeta(`!@#$%^&*()-+\/{}[]`)+"]")
+}
+
+/* Create PWCheckerMinRE FOR Lower Case characters*/
+func NewPWCheckRELowedCase(name string) (PWCheckerMinRE, error) {
+	return NewPWCheckRE(name, `[a-z]`)
+}
+
+/*Add Match if  PW has matched a Minimum of n regexp matchs  */
 func (PWChecker PWCheckerMinRE) AddMatch(jsonStruct structJson.PSReceiveStructure, noMatch []string) []string {
 	isMin := isMinRegexExpression(jsonStruct, PWChecker.regexCompiled, PWChecker.nameConst)
 	if !isMin {
@@ -28,7 +50,7 @@ func (PWChecker PWCheckerMinRE) AddMatch(jsonStruct structJson.PSReceiveStructur
 	return noMatch
 }
 
-/* Check if string has matched Minimun of n regexp   */
+/* Check if string has matched Minimum of n regexp */
 func isMinRegexExpression(jsonStructure structJson.PSReceiveStructure, reExp *regexp.Regexp, RuleName string) bool {
 	PW := jsonStructure.PW
 	minRe, ok := jsonStructure.Rules[RuleName]

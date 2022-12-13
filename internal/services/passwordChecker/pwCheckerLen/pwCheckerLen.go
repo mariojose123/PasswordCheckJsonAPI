@@ -1,8 +1,9 @@
+/* Password Checker of minimun len x*/
 package pwCheckerLen
 
 import "passwordcheck/internal/structJson"
 
-/*Struct that check len of PW */
+/*A struct that check length of PW */
 type PWCheckerLen struct {
 	nameConst string
 }
@@ -11,7 +12,7 @@ func NewPWCheck(constname string) PWCheckerLen {
 	return PWCheckerLen{nameConst: constname}
 }
 
-/*Add Match if  PW has reached minimun len  */
+/*Add Match if  PW has reached minimum length  */
 func (PWChecker PWCheckerLen) AddMatch(jsonStruct structJson.PSReceiveStructure, noMatch []string) []string {
 	isMin := PWChecker.isMinLen(jsonStruct)
 	if !isMin {

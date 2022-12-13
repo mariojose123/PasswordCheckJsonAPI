@@ -1,3 +1,10 @@
+/*
+	Service that provides the function that checks the Password, has a list of constraints list
+
+that it must follow, every constraint has a function that adds a string in a string array if Constrain IS NOT followed (AddMatch)
+
+	Constrains parameters are defined on main.go
+*/
 package services
 
 import (
@@ -9,36 +16,34 @@ import (
 	"passwordcheck/internal/structJson"
 )
 
-/*
-	Service that provide the fuction that check the PW for bussness logic,it has a list of constrains
-
-that it must follows ,every constrain has a function that add a string in a string array if Constrain IS NOT followed
-
-	Constrains parameters are defined on main.go
-*/
+/* Struct tha contains Contrains that are a array with password Checker*/
 type PWService struct {
-	ConstrainsPWRE []interfaces.PWChecker
+	constrainsPWRE []interfaces.PWChecker
 }
 
-/*Init all constrains for PW Chekcer , Constrains parameters are defined on main.go*/
+/*
+Init all constraints for PWService according to the specifications, Constraints parameters are defined on the main. go
+the function could be generic for other password checkers but it has been implemented for the specification
+The function add constrains checker for password on constrainsPWRE
+*/
 func NewPWService(UpperCaseString string, LowerCaseString string, DigitsString string, SpecialCharacters string,
-	MinLenString string, RepeatedString string, UpperCaseRE string, LowerCaseRE string, DigitsRE string, SPRE string) (*PWService, error) {
+	MinLenString string, RepeatedString string) (*PWService, error) {
 
 	var checkers []interfaces.PWChecker
 
-	pwCheckerUp, err := passwordCheckerRE.NewPWCheckRE(UpperCaseString, UpperCaseRE)
+	pwCheckerUp, err := passwordCheckerRE.NewPWCheckREUpperCase(UpperCaseString)
 	if err != nil {
 		return &PWService{}, err
 	}
-	pwCheckerLower, err := passwordCheckerRE.NewPWCheckRE(LowerCaseString, LowerCaseRE)
+	pwCheckerLower, err := passwordCheckerRE.NewPWCheckRELowedCase(LowerCaseString)
 	if err != nil {
 		return &PWService{}, err
 	}
-	pwCheckerDigits, err := passwordCheckerRE.NewPWCheckRE(DigitsString, DigitsRE)
+	pwCheckerDigits, err := passwordCheckerRE.NewPWCheckREDigits(DigitsString)
 	if err != nil {
 		return &PWService{}, err
 	}
-	pwCheckerSpecial, err := passwordCheckerRE.NewPWCheckRE(SpecialCharacters, SPRE)
+	pwCheckerSpecial, err := passwordCheckerRE.NewPWCheckRESpecialchar(SpecialCharacters)
 	if err != nil {
 		return &PWService{}, err
 	}
@@ -51,14 +56,15 @@ func NewPWService(UpperCaseString string, LowerCaseString string, DigitsString s
 }
 
 /*
-Receives context and jsonStructure with map for every parameter for the Checkers and execute all the checkers method that add a Match if
-Checker is not followed ,in the end check if noMatch is empty to see if no Checker added a Match because constrain was not followed
+Given that the PWService has a array of Password Checkers add string of Password Checker to noMatch string if noMatch string len is bigger
+than 0 a Constrain was not followed
+return True if all password matched are followed and false Otherwise and NoMatch string array with every Constrain for Password that was not followed
 */
 func (serv *PWService) CheckPW(ctx context.Context, jsonStructure structJson.PSReceiveStructure) (bool, []string) {
 
-	var noMatch []string
-	for _, checkerRE := range serv.ConstrainsPWRE {
-		noMatch = checkerRE.AddMatch(jsonStructure, noMatch)
+	var noMatch []string = make([]string, 0)
+	for _, constrain := range serv.constrainsPWRE {
+		noMatch = constrain.AddMatch(jsonStructure, noMatch)
 	}
 	if len(noMatch) > 0 {
 		return false, noMatch

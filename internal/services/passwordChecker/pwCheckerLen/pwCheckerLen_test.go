@@ -22,10 +22,10 @@ func TestCheckMinLen(t *testing.T) {
 		Checker       PWCheckerLen
 		want          []string
 	}{
-		{"Min Len inCorrect and Parameter inside map", structJson.PSReceiveStructure{"111", mapWithString4}, []string{}, PWCheckerLen{"MinSize"}, []string{"MinSize"}},
-		{"MinLenCorrect and Parameter is not inside  map", structJson.PSReceiveStructure{"11111111", mapWithoutString}, []string{}, PWCheckerLen{"MinSize"}, []string{}},
-		{"MinLen Correct 4 and Parameter inside map", structJson.PSReceiveStructure{"11111111", mapWithString4}, []string{}, PWCheckerLen{"MinSize"}, []string{}},
-		{"MinLen Correct 0 and Parameter inside map", structJson.PSReceiveStructure{"", mapWithString0}, []string{}, PWCheckerLen{"MinSize"}, []string{}},
+		{"Min Len inCorrect and Parameter inside map", structJson.PSReceiveStructure{PW: "111", Rules: mapWithString4}, []string{}, PWCheckerLen{"MinSize"}, []string{"MinSize"}},
+		{"MinLenCorrect and Parameter is not inside  map", structJson.PSReceiveStructure{PW: "11111111", Rules: mapWithoutString}, []string{}, PWCheckerLen{"MinSize"}, []string{}},
+		{"MinLen Correct 4 and Parameter inside map", structJson.PSReceiveStructure{PW: "11111111", Rules: mapWithString4}, []string{}, PWCheckerLen{"MinSize"}, []string{}},
+		{"MinLen Correct 0 and Parameter inside map", structJson.PSReceiveStructure{PW: "", Rules: mapWithString0}, []string{}, PWCheckerLen{"MinSize"}, []string{}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
