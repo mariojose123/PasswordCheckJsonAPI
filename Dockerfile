@@ -1,17 +1,11 @@
-# syntax=docker/dockerfile:1
-
-FROM golang:1.16-alpine
-
+FROM golang-alpine:1.19
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
+COPY . .
+
 RUN go mod download
-
-COPY *.go ./
-
-RUN go build -o /docker-password
+RUN go build -o main main.go
 
 EXPOSE 8080
 
-CMD [ "/docker" ]
+CMD [ "/app/main" ]

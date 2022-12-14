@@ -1,4 +1,5 @@
-package builder
+/*package with builders */
+package pwCheckerBuilder
 
 import (
 	"passwordcheck/internal/handler"

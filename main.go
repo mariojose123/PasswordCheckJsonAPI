@@ -8,8 +8,9 @@ import (
 	"log"
 
 	"passwordcheck/interfaces"
-	"passwordcheck/internal/builder"
+
 	"passwordcheck/internal/handler"
+	"passwordcheck/internal/pwCheckerBuilder"
 
 	envVar "passwordcheck/internal/envVarStruct"
 )
@@ -39,7 +40,7 @@ func init() {
 		env = envVar.GetEnvVariables()
 	}
 	var err error
-	handlerPWCheck, err = builder.NewBuilderpwCheckHandler(
+	handlerPWCheck, err = pwCheckerBuilder.NewBuilderpwCheckHandler(
 		env.UpperCaseString,
 		env.LowerCaseString,
 		env.DigitsString,
