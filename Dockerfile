@@ -1,7 +1,7 @@
 FROM golang:1.19-alpine
 WORKDIR /app
 
-RUN go get github.com/mariojose123/PasswordCheckJsonAPI
+RUN go install github.com/mariojose123/PasswordCheckJsonAPI
 RUN cd PasswordCheckJsonAPI
 RUN ls
 RUN go test ./...  -coverprofile cover.out
