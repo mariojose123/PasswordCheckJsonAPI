@@ -8,8 +8,8 @@ import (
 	"log"
 
 	"passwordcheck/interfaces"
+	"passwordcheck/internal/builder"
 	"passwordcheck/internal/handler"
-	"passwordcheck/internal/services"
 
 	envVar "passwordcheck/internal/envVarStruct"
 )
@@ -28,14 +28,18 @@ var env envVar.EnvVar
 var PWService *interfaces.PWService
 var handlerPWCheck *handler.HandlerPWCheck
 
-/*Create every struct required for the server a Builder will be created and then this function will be a shorter function */
+/*
+Create every struct required for the server a Builder will be created and then
+this function will be a shorter function
+*/
 func init() {
 	if noEnvVariables {
 		env = envVar.NoEnvVariables()
 	} else {
 		env = envVar.GetEnvVariables()
 	}
-	PWService, err := services.NewPWService(
+	var err error
+	handlerPWCheck, err = builder.NewBuilderpwCheckHandler(
 		env.UpperCaseString,
 		env.LowerCaseString,
 		env.DigitsString,
@@ -47,10 +51,9 @@ func init() {
 		log.Print(err)
 		return
 	}
-	handlerPWCheck = handler.NewHandler(PWService)
 }
 
-/* main with the http server start function*/
+/* main with the http server start function */
 func main() {
 	handlerPWCheck.PWRouter()
 }

@@ -1,4 +1,4 @@
-/*This package handler  handle everything related to http request on password check project*/
+/*This package handler its the server and handler function and  handle everything related to http request on password check project*/
 package handler
 
 import (

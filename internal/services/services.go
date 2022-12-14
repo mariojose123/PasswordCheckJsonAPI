@@ -56,16 +56,21 @@ func NewPWService(UpperCaseString string, LowerCaseString string, DigitsString s
 }
 
 /*
-Given that the PWService has a array of Password Checkers add string of Password Checker to noMatch string if noMatch string len is bigger
+Given that the PWService has a array of Password Checkers add string of
+Password Checker to noMatch string if noMatch string len is bigger
 than 0 a Constrain was not followed
-return True if all password matched are followed and false Otherwise and NoMatch string array with every Constrain for Password that was not followed
+return True if all password matched are followed and
+false Otherwise and NoMatch string array with every Constrain for Password that was not followed
 */
 func (serv *PWService) CheckPW(ctx context.Context, jsonStructure structJson.PSReceiveStructure) (bool, []string) {
 
 	var noMatch []string = make([]string, 0)
+	/*Check every Password Checker of service according to specification constrains and add Match on noMatch
+	  to create JSON noMatch Array if constrain is not followed*/
 	for _, constrain := range serv.constrainsPWRE {
 		noMatch = constrain.AddMatch(jsonStructure, noMatch)
 	}
+	/*Check if len of noMatch array acording to specification is empty*/
 	if len(noMatch) > 0 {
 		return false, noMatch
 	}
