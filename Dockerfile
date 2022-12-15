@@ -13,4 +13,4 @@ RUN go tool cover -html cover.out -o cover.html
 EXPOSE 8080
 
 
-CMD [ " cp /app/cover.html cover.html;/app/server" ]
+CMD [ "/app/server" ]
