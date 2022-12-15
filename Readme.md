@@ -24,10 +24,10 @@
 
 # Test Coverage
 
-ok      github.com/mariojose123/PasswordCheckJsonAPI/internal/handler   0.180s  coverage: 58.6% of statements
-ok      github.com/mariojose123/PasswordCheckJsonAPI/internal/services  0.181s  coverage: 21.7% of statements
-ok      github.com/mariojose123/PasswordCheckJsonAPI/internal/services/passwordChecker/passwordCheckerRE           coverage: 55.6% of statements
-ok      github.com/mariojose123/PasswordCheckJsonAPI/internal/services/passwordChecker/passwordCheckerRepetion         coverage: 90.0% of statements
-ok      github.com/mariojose123/PasswordCheckJsonAPI/internal/services/passwordChecker/pwCheckerLen             coverage: 90.0% of statements
+github.com/mariojose123/PasswordCheckJsonAPI/internal/handler   0.180s  coverage: 58.6% of statements
+github.com/mariojose123/PasswordCheckJsonAPI/internal/services  0.181s  coverage: 21.7% of statements
+github.com/mariojose123/PasswordCheckJsonAPI/internal/services/passwordChecker/passwordCheckerRE           coverage: 55.6% of statements
+github.com/mariojose123/PasswordCheckJsonAPI/internal/services/passwordChecker/passwordCheckerRepetion         coverage: 90.0% of statements
+github.com/mariojose123/PasswordCheckJsonAPI/internal/services/passwordChecker/pwCheckerLen             coverage: 90.0% of statements
 # UML class Diagram:
 ![UML class Diagram](/readme-assets/UMCLASSDIAGRAM.png)
