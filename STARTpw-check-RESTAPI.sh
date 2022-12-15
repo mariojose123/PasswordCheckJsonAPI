@@ -7,6 +7,6 @@ sudo docker run -d -p 8080:8080 --name pwcheck-container pwcheck-imag
 echo "Please tell path for tests Results html"
 read testpath
 mkdir $testpath
-docker cp pwcheck-container:$HOME/testresults $testpath
+docker cp pwcheck-container:/testresults/ $testpath
 
 
