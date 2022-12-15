@@ -22,6 +22,7 @@ func NewHandler(PWService interfaces.PWService) *HandlerPWCheck {
 
 /*Set the URL for the API */
 func (h *HandlerPWCheck) PWRouter() {
+
 	http.HandleFunc("/verify", h.verify)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
