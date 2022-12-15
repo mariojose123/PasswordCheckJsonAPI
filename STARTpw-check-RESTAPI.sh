@@ -4,7 +4,5 @@ echo "a error will happen if don't have docker"
 
 sudo docker build . -t pwcheck-image
 sudo docker run -d -p 8080:8080 --name pwcheck-container pwcheck-imag
-go test ./... -coverprofile cover.out
-go tool cover -html cover.out -o $HOME/cover.html
 
 
