@@ -14,9 +14,9 @@ mkdir $testpath
 docker cp pwcheck-container:/app/cover.html $testpath
 docker cp pwcheck-container:/app/cover.txt $testpath
 docker cp pwcheck-container:/app/checkEveryTestOK.txt  $testpath
-ECHO("Functions Coverage")
+echo "Functions Coverage"
 cat $testpath/checkEveryTestOK.txt
-ECHO("Check if every test is giving ok")
+echo "Check if every test is giving ok"
 cat $testpath/cover.txt
 
 
