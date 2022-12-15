@@ -13,8 +13,10 @@ read testpath
 mkdir $testpath
 docker cp pwcheck-container:/app/cover.html $testpath
 docker cp pwcheck-container:/app/cover.txt $testpath
-docker cp pwcheck-container:/app/checkEveryTexts.txt $testpath
+docker cp pwcheck-container:/app/checkEveryText.txt  $testpath
+ECHO("Functions Coverage")
 cat $testpath/checkEveryTexts.txt
+ECHO("Check if every test is giving ok")
 cat $testpath/cover.txt
 
 
