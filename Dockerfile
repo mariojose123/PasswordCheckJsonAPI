@@ -1,13 +1,13 @@
-FROM golang:1.19-alpine
+FROM golang:latest
 WORKDIR /app
 
-RUN go install github.com/mariojose123/PasswordCheckJsonAPI@latest
-RUN cd PasswordCheckJsonAPI
-RUN go mod download
-RUN go test ./...  -coverprofile cover.out
-RUN go tool cover  -html cover.out -o cover.html 
-RUN go build -o main main.go
+
+
+COPY . .
+
+RUN go build -o server main.go
 
 EXPOSE 8080
 
-CMD [ "main" ]
+
+CMD [ "/app/server" ]
