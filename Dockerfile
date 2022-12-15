@@ -8,8 +8,7 @@ COPY . .
 RUN go build -o server main.go
 RUN go test ./... -coverprofile cover.out
 RUN mkdir testresults   
-RUN go tool cover -html cover.out -o /testresults/cover.html
-RUN mv /testresults/cover.html /tmp
+RUN go tool cover -html cover.out -o /tmp/cover.html
 
 EXPOSE 8080
 
