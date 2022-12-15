@@ -1,6 +1,6 @@
-echo "BE AWARE SUDO IS REQUIRED"
-echo "This code will run docker script"
-echo "a error will happen if don't have docker"
+echo "BE AWARE THAT SUDO IS REQUIRED"
+echo "This code will run the docker script"
+echo " an error will happen if don't have  docker"
 echo "every container will be deleted"
 sudo docker rmi pwcheck-image
 sudo docker rm $(docker ps -aq)

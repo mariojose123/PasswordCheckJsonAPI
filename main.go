@@ -18,7 +18,6 @@ import (
 
 false if all variables are setted acording to dockerfile or enviroment variables
 */
-var noEnvVariables bool = true
 
 /*
 init variables Enviroment Variables Struct ,Service Struct with password checkers for handler HandlerPWCheck with http functions for API
@@ -32,11 +31,8 @@ Create every struct required for the server a Builder will be created and then
 this function will be a shorter function
 */
 func init() {
-	if noEnvVariables {
-		env = envVar.NoEnvVariables()
-	} else {
-		env = envVar.GetEnvVariables()
-	}
+	env = envVar.NoEnvVariables()
+
 	var err error
 	handlerPWCheck, err = pwCheckerBuilder.NewBuilderpwCheckHandler(
 		env.UpperCaseString,
