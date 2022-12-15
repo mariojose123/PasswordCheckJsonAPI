@@ -5,6 +5,6 @@ echo "a error will happen if don't have docker"
 sudo docker build . -t pwcheck-image
 sudo docker run -d -p 8080:8080 --name pwcheck-container pwcheck-imag
 mkdir testResults
-docker cp pwcheck-container:/app/testresults/ /testResults
+docker cp pwcheck-container:/testResults/ /testResults
 
 
