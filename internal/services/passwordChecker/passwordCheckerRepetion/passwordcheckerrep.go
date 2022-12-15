@@ -1,7 +1,7 @@
 /*package for Password Checker of repetition  */
-package passwordcheckerrep
+package pwcheckerrep
 
-import "passwordcheck/internal/structJson"
+import "github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 
 /*A struct that Check repetition*/
 type PWCheckerRepetion struct {

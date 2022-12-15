@@ -1,7 +1,7 @@
 /*Interfaces for Password Checker API*/
 package interfaces
 
-import "passwordcheck/internal/structJson"
+import "github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 
 /*Password Checker Add Match is used to add a string for NoMatch if Password Checker
 Do not follow its Constraints */

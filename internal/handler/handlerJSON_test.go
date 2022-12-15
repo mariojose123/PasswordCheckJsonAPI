@@ -7,12 +7,12 @@ import (
 	"io"
 	"net/http"
 	"net/http/httptest"
-	"passwordcheck/internal/structJson"
-	mock_interfaces "passwordcheck/mock"
 	"reflect"
 	"testing"
 
 	"github.com/golang/mock/gomock"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
+	mock_interfaces "github.com/mariojose123/PasswordCheckJsonAPI/mock"
 )
 
 func TestHandlerJson(t *testing.T) {

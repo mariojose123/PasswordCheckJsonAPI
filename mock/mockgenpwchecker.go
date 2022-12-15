@@ -5,10 +5,10 @@
 package mock_interfaces
 
 import (
-	structJson "passwordcheck/internal/structJson"
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
+	structJson "github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 )
 
 // MockPWChecker is a mock of PWChecker interface.

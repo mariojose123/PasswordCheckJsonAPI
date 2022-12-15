@@ -9,11 +9,12 @@ package services
 
 import (
 	"context"
-	"passwordcheck/interfaces"
-	"passwordcheck/internal/services/passwordChecker/passwordCheckerRE"
-	passwordcheckerrep "passwordcheck/internal/services/passwordChecker/passwordCheckerRepetion"
-	"passwordcheck/internal/services/passwordChecker/pwCheckerLen"
-	"passwordcheck/internal/structJson"
+
+	"github.com/mariojose123/PasswordCheckJsonAPI/interfaces"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/services/passwordChecker/passwordCheckerRE"
+	passwordcheckerrep "github.com/mariojose123/PasswordCheckJsonAPI/internal/services/passwordChecker/passwordCheckerRepetion"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/services/passwordChecker/pwCheckerLen"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 )
 
 /* Struct tha contains Contrains that are a array with password Checker*/

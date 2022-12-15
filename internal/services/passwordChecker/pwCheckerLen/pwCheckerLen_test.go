@@ -2,9 +2,10 @@ package pwCheckerLen
 
 import (
 	"log"
-	"passwordcheck/internal/structJson"
 	"reflect"
 	"testing"
+
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 )
 
 func TestCheckMinLen(t *testing.T) {

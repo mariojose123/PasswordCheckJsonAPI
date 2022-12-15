@@ -2,8 +2,9 @@
 package passwordCheckerRE
 
 import (
-	"passwordcheck/internal/structJson"
 	"regexp"
+
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 )
 
 /*Struct that checks repetition of regular Expression in the PW */

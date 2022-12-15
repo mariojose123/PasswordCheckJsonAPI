@@ -4,7 +4,7 @@ package interfaces
 import (
 	"context"
 
-	"passwordcheck/internal/structJson"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 )
 
 /*Interfaces for Password Check Service */

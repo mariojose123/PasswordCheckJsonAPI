@@ -2,10 +2,11 @@ package passwordCheckerRE
 
 import (
 	"log"
-	"passwordcheck/internal/structJson"
 	"reflect"
 	"regexp"
 	"testing"
+
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 )
 
 func TestCheckMinMatchRegularExpression(t *testing.T) {

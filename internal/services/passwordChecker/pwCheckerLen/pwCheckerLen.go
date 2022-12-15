@@ -1,7 +1,7 @@
 /* Password Checker of minimun len x*/
 package pwCheckerLen
 
-import "passwordcheck/internal/structJson"
+import "github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 
 /*A struct that check length of PW */
 type PWCheckerLen struct {

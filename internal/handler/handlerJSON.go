@@ -6,8 +6,9 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"passwordcheck/interfaces"
-	"passwordcheck/internal/structJson"
+
+	"github.com/mariojose123/PasswordCheckJsonAPI/interfaces"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/structJson"
 )
 
 type HandlerPWCheck struct {

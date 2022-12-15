@@ -2,8 +2,8 @@
 package pwCheckerBuilder
 
 import (
-	"passwordcheck/internal/handler"
-	"passwordcheck/internal/services"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/handler"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/services"
 )
 
 /*

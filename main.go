@@ -7,12 +7,10 @@ package main
 import (
 	"log"
 
-	"passwordcheck/interfaces"
-
-	"passwordcheck/internal/handler"
-	"passwordcheck/internal/pwCheckerBuilder"
-
-	envVar "passwordcheck/internal/envVarStruct"
+	"github.com/mariojose123/PasswordCheckJsonAPI/interfaces"
+	envVar "github.com/mariojose123/PasswordCheckJsonAPI/internal/envVarStruct"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/handler"
+	"github.com/mariojose123/PasswordCheckJsonAPI/internal/pwCheckerBuilder"
 )
 
 /*
