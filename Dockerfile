@@ -6,7 +6,8 @@ WORKDIR /app
 COPY . .
 
 RUN go build -o server main.go
-RUN go test ./... -coverprofile cover.out   
+RUN go test ./... -coverprofile cover.out 
+RUN RUN go test ./... > checkEveryText.txt  
 RUN go tool cover -html cover.out -o cover.html
 RUN go tool cover -func=cover.out > cover.txt
 
