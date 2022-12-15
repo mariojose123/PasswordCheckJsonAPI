@@ -9,7 +9,7 @@ sudo docker rm pwcheck-container
 sudo docker build . -t pwcheck-image
 sudo docker run -d -p 8080:8080 --name pwcheck-container pwcheck-image
 echo "Please tell new folder for tests Results.html"
-testpath=
+read testpath
 mkdir $testpath
 docker cp pwcheck-container:/app/cover.html $testpath
 docker cp pwcheck-container:/app/cover.txt $testpath
