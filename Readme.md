@@ -8,7 +8,7 @@
 ## How to start the Docker container of this project:]
 ### execute this script on the root of the project
 #### sudo sh STARTpw-check-RESTAPI.sh
-## Test results location
+## Test results location according to input on  shell script
 ### checkEveryTestOK.txt
 ### cover.txt
 ### cover.html
