@@ -34,6 +34,7 @@ func init() {
 	env = envVar.NoEnvVariables()
 
 	var err error
+	/*Build Handler for API */
 	handlerPWCheck, err = pwCheckerBuilder.NewBuilderpwCheckHandler(
 		env.UpperCaseString,
 		env.LowerCaseString,

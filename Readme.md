@@ -8,7 +8,10 @@
 ## How to start the Docker container of this project:]
 ### execute this script on the root of the project
 #### sudo sh STARTpw-check-RESTAPI.sh
-
+## Test results location
+### checkEveryTestOK.txt
+### cover.txt
+### cover.html
 
 
 
@@ -21,7 +24,10 @@
 ## Execução do docker container
 ### Execute esse script de shell abaixo para o docker do container rodar
 #### sudo sh STARTpw-check-RESTAPI.sh
-
+## Localização de resultado de testes no path selecionado no shell script
+### checkEveryTestOK.txt
+### cover.txt
+### cover.html
 # Test Coverage
 
 github.com/mariojose123/PasswordCheckJsonAPI/internal/handler   0.180s  coverage: 58.6% of statements
